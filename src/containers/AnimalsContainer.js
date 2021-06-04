@@ -7,7 +7,7 @@ const AnimalsContainer = (props) => {
 
     return (
         <div id="animals-container">
-            <button className="button">Create A New Animal!</button>
+            <button onClick={props.addAnimal} className="button">Create A New Animal!</button>
             {animals.map(a => <Animal animal={a} />)}
         </div>
     )
