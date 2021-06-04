@@ -25,7 +25,7 @@ code {
   margin:5%;
   text-decoration: none;
   color: rgb(72, 118, 66);
-  background-color:rgb(193, 225, 174);
+  background-color:rgb(207, 237, 190);
 }
 
 #main-nav {
@@ -69,5 +69,9 @@ code {
   height: 60px;
   font-size: large;
   background-color:rgb(173, 205, 154);
+  color: white;
+}
+
+a {
   color: white;
 }
