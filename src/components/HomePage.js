@@ -2,10 +2,10 @@
 const HomePage = (props) => {
 
     return (
-        <div>
+        <div id="homepage">
             <h1>Welcome to Wildlife Park!</h1>
-            <button>See Habitats</button>
-            <button>See Animals</button>
+            <button className="home-button">See Habitats</button>
+            <button className="home-button">See Animals</button>
         </div>
     )
 }

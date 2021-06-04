@@ -48,3 +48,22 @@ code {
   margin: 20px;
   border-radius: 25px;
 }
+
+#homepage {
+  margin: auto;
+  width: 70%;
+  background-color:rgb(149, 182, 138);
+  color: white;
+  padding: 30px;
+  margin-top: 10%;
+  font-size:x-large;
+  text-align: center;
+}
+
+.home-button {
+  width: 90%;
+  margin: 30px;
+  height: 60px;
+  font-size: large;
+  background-color:rgb(230, 180, 173);
+}
