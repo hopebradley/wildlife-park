@@ -7,6 +7,7 @@ const HabitatsContainer = (props) => {
 
     return (
         <div>
+            <button className="button">Create A New Habitat!</button>
             {habitats.map(h => <Habitat habitat={h} animals={props.animals} />)}
         </div>
     )

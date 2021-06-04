@@ -31,3 +31,20 @@ code {
   margin-left: 0px;
   font-size: 40px;
 }
+
+.button {
+  padding:15px;
+  margin: 10px;
+  background-color: rgb(235, 140, 140);
+  color: white;
+  height: 70px;
+  font-size: 20px;
+  border-radius: 25px;
+}
+
+#habitat {
+  background-color:rgb(230, 180, 173);
+  padding: 15px;
+  margin: 20px;
+  border-radius: 25px;
+}
