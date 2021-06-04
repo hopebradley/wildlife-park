@@ -1,7 +1,7 @@
 import './App.css';
 import React from 'react';
 import NavBar from './components/NavBar'
-import Habitat from './containers/Habitat'
+import HabitatsContainer from './containers/HabitatsContainer'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends React.Component {
@@ -31,8 +31,6 @@ class App extends React.Component {
     .then(() => console.log(this.state.habitats));
 
   }
-
-  const displayHabitats = this.state.habitats.map(h => <Habitat habitat={h} animals={this.state.animals} />)
   
   render() {
     return (
@@ -40,7 +38,7 @@ class App extends React.Component {
         <div>
           <NavBar />
           <Route exact path="/habitats" render={(props) => (
-            {displayHabitats}
+            <HabitatsContainer habitats={this.state.habitats} animals={this.state.animals}/>
           )}/>
         </div>
       </Router>

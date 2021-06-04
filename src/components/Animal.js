@@ -1,11 +1,11 @@
 
 const Animal = (props) => {
 
-    const animalName = props.animal.name;
+    const animal = props.animal;
 
     return (
         <div>
-            <h1>{animalName}</h1>
+            <h3>{animal.name} - {animal.species}</h3>
         </div>
     )
 }
