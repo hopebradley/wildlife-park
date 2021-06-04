@@ -51,6 +51,24 @@ code {
   margin: 20px;
   border-radius: 25px;
 }
+#animals-container {
+  margin: auto;
+}
+
+.animal {
+  padding: 15px;
+  margin: 20px;
+  border-radius: 25px;
+  width: 30%;
+}
+
+#active-animal {
+  background-color:rgb(180, 233, 185);
+}
+
+#inactive-animal {
+  background-color:rgb(250, 161, 141);
+}
 
 #homepage {
   margin: auto;
