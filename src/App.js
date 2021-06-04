@@ -2,6 +2,7 @@ import './App.css';
 import React from 'react';
 import NavBar from './components/NavBar'
 import HabitatsContainer from './containers/HabitatsContainer'
+import HomePage from './components/HomePage'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 class App extends React.Component {
@@ -39,6 +40,9 @@ class App extends React.Component {
           <NavBar />
           <Route exact path="/habitats" render={(props) => (
             <HabitatsContainer habitats={this.state.habitats} animals={this.state.animals}/>
+          )}/>
+          <Route exact path="/" render={(props) => (
+            <HomePage />
           )}/>
         </div>
       </Router>
