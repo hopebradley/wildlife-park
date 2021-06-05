@@ -99,3 +99,19 @@ code {
 a {
   color: white;
 }
+
+.form {
+  width: 300px;
+  margin: auto;
+  font-size:x-large;
+  background-color:rgb(178, 235, 173);
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 1%;
+  padding-bottom: 3%;
+  border-radius: 20px;
+}
+
+#form-title {
+  text-align: center;
+}

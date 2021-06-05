@@ -3,6 +3,8 @@ import React from 'react';
 import NavBar from './components/NavBar'
 import HabitatsContainer from './containers/HabitatsContainer'
 import AnimalsContainer from './containers/AnimalsContainer'
+import AnimalForm from './components/AnimalForm'
+import HabitatForm from './components/HabitatForm'
 import HomePage from './components/HomePage'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -35,41 +37,38 @@ class App extends React.Component {
   }
 
   addAnimal = (e) => {
+    e.preventDefault();
+    console.log(Array.from(e.target.children));
+    const formContents = Array.from(e.target.children);
+    const name = formContents[1].value;
+    const species = formContents[3].value;
+    const habitat = this.state.habitats.find(h => h.name = formContents[5].value);
+    const active = true;
 
-    console.log(e);
-    // e.preventDefault();
-    // const formContents = Array.from(e.target.children);
-    // const name = formContents[3].value;
-    // const species = formContents[1].value;
-    // const habitat = formContents[5].value;
-    // let active;
+    console.log(name, species, habitat, active);
 
-    // const configObject = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Accept": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //     name: name,
-    //     species: species,
-    //     habitat_id: habitat.id,
-    //   })
-    // }
+    const configObject = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name: name,
+        species: species,
+        active: true,
+        habitat_id: habitat.id,
+      })
+    }
 
-    // fetch('http://localhost:9292/animals', configObject)
-    // .then(resp => resp.json())
-    // .then(data => {
-    //   console.log(data);
-    //   const newDisplay = [...this.state.displayClothes];
-    //   newDisplay.unshift(data);
-    //   newDisplay.pop();
-    //   console.log(newDisplay);
-    //   this.setState({
-    //     displayClothes: newDisplay,
-    //   })
-    // })
-    // .then(() => window.location.href = 'http://localhost:3000/animals');
+    fetch('http://localhost:9292/animals', configObject)
+    .then(resp => resp.json())
+    .then((data) => {
+      const newAnimals = [...this.state.animals];
+      this.setState({
+        animals: newAnimals
+      })
+    });
 
   }
   
@@ -86,9 +85,17 @@ class App extends React.Component {
           )}/>
 
           <Route exact path="/animals" render={(props) => (
-            <AnimalsContainer addAnimal={this.addAnimal} animals={this.state.animals}/>
+            <AnimalsContainer addAnimal={this.addAnimal} animals={this.state.animals} habitats={this.state.habitats} />
           )}/>
           
+          <Route exact path="/add-animal" render={(props) => (
+            <AnimalForm addAnimal={this.addAnimal}/>
+          )}/>
+
+          <Route exact path="/add-habitat" render={(props) => (
+            <HabitatForm addHabitat={this.addHabitat} />
+          )}/>
+
         </div>
       </Router>
     )
