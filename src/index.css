@@ -115,3 +115,13 @@ a {
 #form-title {
   text-align: center;
 }
+
+.sort {
+  margin: 3%;
+  background-color:silver;
+  width: 20%;
+  padding: 1px;
+  padding-bottom: 10px;
+  border-radius: 25px;
+  text-align: center;
+}
