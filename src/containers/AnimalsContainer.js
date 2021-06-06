@@ -54,7 +54,7 @@ class AnimalsContainer extends React.Component {
                 </div>
                 {this.state.animals.map(a => {
                     const h = this.props.habitats.find(h => h.id == a.habitat_id).name;
-                    return <Animal animal={a} habitat={h}/>
+                    return <Animal animal={a} habitat={h} delete={this.props.delete}/>
                 })}
             </div>
         )

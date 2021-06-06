@@ -36,46 +36,55 @@ class App extends React.Component {
 
   }
 
-  // addAnimal = (e) => {
-  //   e.preventDefault();
-  //   console.log(Array.from(e.target.children));
-  //   const formContents = Array.from(e.target.children);
-  //   const name = formContents[1].value;
-  //   const species = formContents[3].value;
-  //   const habitat = this.state.habitats.find(h => h.name = formContents[5].value);
-  //   const active = true;
+  addAnimal = (e) => {
+    e.preventDefault();
+    console.log(Array.from(e.target.children));
+    // const formContents = Array.from(e.target.children);
+    // const name = formContents[1].value;
+    // const species = formContents[3].value;
+    // const habitat = this.state.habitats.find(h => h.name = formContents[5].value);
+    // const active = true;
 
-  //   console.log(name, species, habitat, active);
+    // console.log(name, species, habitat, active);
 
-  //   const configObject = {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "Accept": "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       name: name,
-  //       species: species,
-  //       active: true,
-  //       habitat_id: habitat.id,
-  //     })
-  //   }
+    // const configObject = {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //     "Accept": "application/json"
+    //   },
+    //   body: JSON.stringify({
+    //     name: name,
+    //     species: species,
+    //     active: true,
+    //     habitat_id: habitat.id,
+    //   })
+    // }
 
-  //   fetch('http://localhost:9292/animals', configObject)
-  //   .then(resp => resp.json())
-  //   .then((data) => {
-  //     const newAnimals = [...this.state.animals];
-  //     this.setState({
-  //       animals: newAnimals
-  //     })
-  //   });
+    // fetch('http://localhost:9292/animals', configObject)
+    // .then(resp => resp.json())
+    // .then((data) => {
+    //   const newAnimals = [...this.state.animals];
+    //   this.setState({
+    //     animals: newAnimals
+    //   })
+    // });
 
-  // }
+  }
 
-  // addHabitat = (e) => {
+  addHabitat = (e) => {
+    e.preventDefault();
+    console.log(e.target)
+  }
 
-  // }
+  deleteAnimal = (e) => {
+    console.log(e.target)
+  }
   
+  deleteHabitat = (e) => {
+    console.log(e.target)
+  }
+
   render() {
     return (
       <Router>
@@ -85,11 +94,11 @@ class App extends React.Component {
             <HomePage />
           )}/>
           <Route exact path="/habitats" render={(props) => (
-            <HabitatsContainer habitats={this.state.habitats} animals={this.state.animals}/>
+            <HabitatsContainer habitats={this.state.habitats} animals={this.state.animals} delete={this.deleteHabitat}/>
           )}/>
 
           <Route exact path="/animals" render={(props) => (
-            <AnimalsContainer addAnimal={this.addAnimal} animals={this.state.animals} habitats={this.state.habitats} />
+            <AnimalsContainer addAnimal={this.addAnimal} animals={this.state.animals} habitats={this.state.habitats} delete={this.deleteAnimal} />
           )}/>
           
           <Route exact path="/add-animal" render={(props) => (
