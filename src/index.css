@@ -53,6 +53,10 @@ code {
   border-radius: 25px;
 }
 
+.delete {
+  background-color: rgb(213, 91, 91);
+}
+
 #habitat {
   background-color:rgb(225, 170, 136);
   padding: 15px;

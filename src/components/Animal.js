@@ -13,7 +13,7 @@ const Animal = (props) => {
             <h3>{animal.name} - {animal.species}</h3>
             <p>{animal.active ? "Active" : "Inactive"}</p>
             <p>Habitat: {habitat}</p>
-            <button className="button" onClick={props.delete}>Delete Animal</button>
+            <button className="button delete" onClick={props.delete}>Delete Animal</button>
         </div>
     )
 }

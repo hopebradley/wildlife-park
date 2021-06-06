@@ -11,7 +11,7 @@ const Habitat = (props) => {
             <h1>{habitat.name}</h1>
             <h2>Active Animals:</h2>
             {activeAnimals.map(a => <Animal animal={a} />)}
-            <button className="button" onClick={props.delete}>Delete Habitat</button>
+            <button className="button delete" onClick={props.delete}>Delete Habitat</button>
         </div>
     )
 }
