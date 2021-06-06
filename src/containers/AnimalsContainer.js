@@ -15,11 +15,17 @@ class AnimalsContainer extends React.Component {
         const index = select.selectedIndex;
         const value = select[index].innerText;
         let newAnimalOrder;
-        if (value == "Name (A-Z)") {
+        if (value == "Sort By Name (A-Z)") {
             newAnimalOrder = this.state.animals.sort((a, b) => (a.name > b.name) ? 1 : -1 ); 
         }
-        else if (value == "Activity") {
-            newAnimalOrder = this.state.animals.sort((a, b) => (a.active < b.active) ? 1 : -1 ); 
+        if (value == "Sort By Species (A-Z)") {
+            newAnimalOrder = this.state.animals.sort((a, b) => (a.species > b.species) ? 1 : -1 ); 
+        }
+        else if (value == "Active") {
+            newAnimalOrder = this.state.animals.filter((a) => a.active ); 
+        }
+        else if (value == "Inactive") {
+            newAnimalOrder = this.state.animals.filter((a) => !a.active ); 
         }
         else {
             newAnimalOrder = this.state.animals;
@@ -38,8 +44,10 @@ class AnimalsContainer extends React.Component {
                     <h3>SORT:</h3>
                     <form onSubmit={this.handleChange}>
                         <select>
-                                <option>Name (A-Z)</option>
-                                <option>Activity</option>
+                                <option>Sort By Name (A-Z)</option>
+                                <option>Sort By Species (A-Z)</option>
+                                <option>Active</option>
+                                <option>Inactive</option>
                         </select>
                         <input type="submit"/>
                     </form>
