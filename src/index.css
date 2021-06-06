@@ -43,8 +43,11 @@ code {
 
 .button {
   padding:15px;
-  margin: 10px;
-  background-color: rgb(225, 170, 136);
+  margin-left: 40%;
+  margin-right: 40%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-color: rgb(129, 171, 208);
   color: white;
   height: 70px;
   font-size: 20px;
@@ -54,16 +57,24 @@ code {
 #habitat {
   background-color:rgb(225, 170, 136);
   padding: 15px;
-  margin: 20px;
+  margin: auto;
+  margin-bottom: 3%;
   border-radius: 25px;
+  width: 70%;
+  text-align: center;
 }
+#habitat h2 {
+  color:steelblue;
+}
+
 #animals-container {
   margin: auto;
 }
 
 .animal {
   padding: 15px;
-  margin: 20px;
+  margin: auto;
+  margin-bottom: 1%;
   border-radius: 25px;
   width: 30%;
 }
@@ -117,11 +128,12 @@ a {
 }
 
 .sort {
-  margin: 3%;
+  margin: auto;
+  margin-bottom: 3%;
   background-color:silver;
   width: 20%;
-  padding: 1px;
-  padding-bottom: 10px;
+  padding: 5px;
+  padding-bottom: 20px;
   border-radius: 25px;
   text-align: center;
 }
