@@ -1,16 +1,22 @@
+import { render } from '@testing-library/react';
 import React from 'react';
 import Habitat from './Habitat'
 
-const HabitatsContainer = (props) => {
+class HabitatsContainer extends React.Component {
 
-    const habitats = props.habitats
+    state = {
+        habitats: this.props.habitats
+    }
 
-    return (
-        <div>
-            <button className="button">Create A New Habitat!</button>
-            {habitats.map(h => <Habitat habitat={h} animals={props.animals} />)}
-        </div>
-    )
+    render() {
+        return (
+            <div>
+                <button className="button">Create A New Habitat!</button>
+                {this.state.habitats.map(h => <Habitat habitat={h} animals={props.animals} />)}
+            </div>
+        )
+    }
+    
 }
 
 export default HabitatsContainer
