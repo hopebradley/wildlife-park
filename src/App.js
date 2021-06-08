@@ -39,42 +39,73 @@ class App extends React.Component {
   addAnimal = (e) => {
     e.preventDefault();
     console.log(Array.from(e.target.children));
-    // const formContents = Array.from(e.target.children);
-    // const name = formContents[1].value;
-    // const species = formContents[3].value;
-    // const habitat = this.state.habitats.find(h => h.name = formContents[5].value);
-    // const active = true;
+    const formContents = Array.from(e.target.children);
+    const name = formContents[1].value;
+    const species = formContents[3].value;
+    const habitat = this.state.habitats.find(h => h.name = formContents[5].value);
+    const active = true;
 
-    // console.log(name, species, habitat, active);
+    console.log(name, species, habitat, active);
 
-    // const configObject = {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //     "Accept": "application/json"
-    //   },
-    //   body: JSON.stringify({
-    //     name: name,
-    //     species: species,
-    //     active: true,
-    //     habitat_id: habitat.id,
-    //   })
-    // }
+    const configObject = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name: name,
+        species: species,
+        active: true,
+        habitat_id: habitat.id,
+      })
+    }
 
-    // fetch('http://localhost:9292/animals', configObject)
-    // .then(resp => resp.json())
-    // .then((data) => {
-    //   const newAnimals = [...this.state.animals];
-    //   this.setState({
-    //     animals: newAnimals
-    //   })
-    // });
+    fetch('http://localhost:9292/animals', configObject)
+    .then(resp => resp.json())
+    .then((data) => {
+      console.log(data)
+      this.setState({
+        animals: [...this.state.animals, data]
+      })
+    });
 
   }
 
   addHabitat = (e) => {
     e.preventDefault();
-    console.log(e.target)
+    console.log(Array.from(e.target.children));
+    const formContents = Array.from(e.target.children);
+    const name = formContents[1].value;
+    const type = formContents[3].value;
+    const location = formContents[5].value;
+    let indoor;
+    let aquatic;
+    type == "Aquatic" ? aquatic = true : aquatic = false;
+    location == "Indoor" ? indoor = true : indoor = false;
+
+    console.log(name, type, location);
+
+    const configObject = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        name: name,
+        type: aquatic,
+        location: indoor,
+      })
+    }
+    fetch('http://localhost:9292/habitats', configObject)
+    .then(resp => resp.json())
+    .then((data) => {
+      console.log(data)
+      this.setState({
+        habitats: [...this.state.habitats, data]
+      })
+    });
   }
 
   deleteAnimal = (e) => {
