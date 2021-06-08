@@ -10,7 +10,7 @@ const Habitat = (props) => {
         <div id="habitat">
             <h1>{habitat.name}</h1>
             <h2>Active Animals:</h2>
-            {activeAnimals.map(a => <Animal animal={a} />)}
+            {activeAnimals.map(a => <Animal animal={a} habitat={habitat.name}/>)}
             <button className="button delete" onClick={props.delete}>Delete Habitat</button>
         </div>
     )

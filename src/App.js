@@ -42,7 +42,7 @@ class App extends React.Component {
     const formContents = Array.from(e.target.children);
     const name = formContents[1].value;
     const species = formContents[3].value;
-    const habitat = this.state.habitats.find(h => h.name = formContents[5].value);
+    const habitat = this.state.habitats.find(h => h.name == formContents[5].value);
     const active = true;
 
     console.log(name, species, habitat, active);
@@ -67,7 +67,7 @@ class App extends React.Component {
       console.log(data)
       this.setState({
         animals: [...this.state.animals, data]
-      })
+      });
     });
 
   }
