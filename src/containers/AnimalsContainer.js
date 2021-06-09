@@ -1,7 +1,8 @@
 import React from 'react';
 import Animal from '../components/Animal'
-import { Link } from 'react-router-dom'
-import { render } from '@testing-library/react';
+import AnimalForm from '../components/AnimalForm'
+// import { Link } from 'react-router-dom'
+//import { render } from '@testing-library/react';
 
 class AnimalsContainer extends React.Component {
 
@@ -15,16 +16,16 @@ class AnimalsContainer extends React.Component {
         const index = select.selectedIndex;
         const value = select[index].innerText;
         let newAnimalOrder;
-        if (value == "Sort By Name (A-Z)") {
+        if (value === "Sort By Name (A-Z)") {
             newAnimalOrder = this.state.animals.sort((a, b) => (a.name > b.name) ? 1 : -1 ); 
         }
-        if (value == "Sort By Species (A-Z)") {
+        if (value === "Sort By Species (A-Z)") {
             newAnimalOrder = this.state.animals.sort((a, b) => (a.species > b.species) ? 1 : -1 ); 
         }
-        else if (value == "Active") {
+        else if (value === "Active") {
             newAnimalOrder = this.state.animals.filter((a) => a.active ); 
         }
-        else if (value == "Inactive") {
+        else if (value === "Inactive") {
             newAnimalOrder = this.state.animals.filter((a) => !a.active ); 
         }
         else {
@@ -35,11 +36,25 @@ class AnimalsContainer extends React.Component {
         })
     }
 
+    componentDidUpdate(prevProps) {
+        //console.log('AnimalsContainer updated')
+        if (this.props.animals !== this.state.animals) {
+            this.setState({
+                animals: this.props.animals
+            }) 
+        }
+        // Typical usage (don't forget to compare props):
+      //  if (this.props.userID !== prevProps.userID) {
+       //   this.fetchData(this.props.userID);
+        //}
+      }
+
     render() {
         return (
             <div id="animals-container">
                 {console.log(this.state.animals)}
-                <button className="button"><Link to="/add-animal">Add An Animal</Link></button>
+                {/* <button className="button"><Link to="/add-animal">Add An Animal</Link></button> */}
+                <AnimalForm addAnimal={this.props.addAnimal}/>
                 <div className="sort">
                     <h3>SORT:</h3>
                     <form onSubmit={this.handleChange}>
@@ -53,8 +68,8 @@ class AnimalsContainer extends React.Component {
                     </form>
                 </div>
                 {this.state.animals.map(a => {
-                    const h = this.props.habitats.find(h => h.id == a.habitat_id).name;
-                    return <Animal animal={a} habitat={h} delete={this.props.delete}/>
+                    const h = this.props.habitats.find(h => h.id === a.habitat_id).name;
+                    return <Animal key={a.id} animal={a} habitat={h} delete={this.props.delete}/>
                 })}
             </div>
         )

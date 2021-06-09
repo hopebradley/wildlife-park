@@ -38,14 +38,14 @@ class App extends React.Component {
 
   addAnimal = (e) => {
     e.preventDefault();
-    console.log(Array.from(e.target.children));
+    //console.log(Array.from(e.target.children));
     const formContents = Array.from(e.target.children);
     const name = formContents[1].value;
     const species = formContents[3].value;
-    const habitat = this.state.habitats.find(h => h.name == formContents[5].value);
+    const habitat = this.state.habitats.find(h => h.name === formContents[5].value);
     const active = true;
 
-    console.log(name, species, habitat, active);
+    console.log('Animal attributes:', name, species, habitat, active);
 
     const configObject = {
       method: "POST",
@@ -64,7 +64,7 @@ class App extends React.Component {
     fetch('http://localhost:9292/animals', configObject)
     .then(resp => resp.json())
     .then((data) => {
-      console.log(data)
+      console.log('New Animal Data to be added to state: ', data)
       this.setState({
         animals: [...this.state.animals, data]
       });
@@ -81,8 +81,8 @@ class App extends React.Component {
     const location = formContents[5].value;
     let indoor;
     let aquatic;
-    type == "Aquatic" ? aquatic = true : aquatic = false;
-    location == "Indoor" ? indoor = true : indoor = false;
+    type === "Aquatic" ? aquatic = true : aquatic = false;
+    location === "Indoor" ? indoor = true : indoor = false;
 
     console.log(name, type, location);
 
@@ -94,12 +94,15 @@ class App extends React.Component {
       },
       body: JSON.stringify({
         name: name,
-        type: aquatic,
-        location: indoor,
+        aquatic: aquatic,
+        indoor: indoor
       })
     }
     fetch('http://localhost:9292/habitats', configObject)
-    .then(resp => resp.json())
+    .then(resp => {
+      console.log(resp) 
+      return resp.json()
+    })
     .then((data) => {
       console.log(data)
       this.setState({

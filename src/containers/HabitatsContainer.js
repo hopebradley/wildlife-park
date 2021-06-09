@@ -1,6 +1,7 @@
-import { render } from '@testing-library/react';
+//import { render } from '@testing-library/react';
 import React from 'react';
 import Habitat from './Habitat'
+import { Link } from 'react-router-dom';
 
 class HabitatsContainer extends React.Component {
 
@@ -14,17 +15,17 @@ class HabitatsContainer extends React.Component {
         const index = select.selectedIndex;
         const value = select[index].innerText;
         let newHabitatOrder;
-        if (value == "Sort By Name (A-Z)") {
+        if (value === "Sort By Name (A-Z)") {
             newHabitatOrder = this.state.habitats.sort((a, b) => (a.name > b.name) ? 1 : -1 ); 
         }
-        else if (value == "Aquatic") {
+        else if (value === "Aquatic") {
             newHabitatOrder = this.state.habitats.filter((h) => h.aquatic); 
         }
-        else if (value == "Indoor") {
+        else if (value === "Indoor") {
             newHabitatOrder = this.state.habitats.filter((h) => h.indoor); 
         }
-        else if (value == "Outdoor") {
-            newHabitatOrder = this.state.habitats.filter((h) => !h.indoor); 
+        else if (value === "Outdoor") {
+            newHabitatOrder = this.state.habitats.filter((h) => h.indoor === e); 
         }
         else {
             newHabitatOrder = this.state.habitats;
@@ -37,7 +38,7 @@ class HabitatsContainer extends React.Component {
     render() {
         return (
             <div>
-                <button className="button">Create A New Habitat!</button>
+                <button className="button"><Link to="/add-habitat">Add A Habitat</Link></button>
                 <div className="sort">
                     <h3>FILTER:</h3>
                     <form onSubmit={this.handleChange}>
@@ -50,7 +51,7 @@ class HabitatsContainer extends React.Component {
                         <input type="submit"/>
                     </form>
                 </div>
-                {this.state.habitats.map(h => <Habitat habitat={h} animals={this.props.animals} delete={this.props.delete} />)}
+                {this.state.habitats.map(h => <Habitat key={h.id} habitat={h} animals={this.props.animals} />)}
             </div>
         )
     }
