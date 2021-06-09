@@ -115,14 +115,16 @@ a {
 }
 
 .form {
-  width: 300px;
+  width: 80%;
   margin: auto;
-  font-size:x-large;
-  background-color:rgb(178, 235, 173);
+  text-align: center;
+  background-color:rgb(206, 169, 227);
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 1%;
   padding-bottom: 3%;
+  margin-bottom: 100px;
+  margin-top: 50px;
   border-radius: 20px;
 }
 
@@ -133,6 +135,7 @@ a {
 .sort {
   margin: auto;
   margin-bottom: 3%;
+  margin-top: 3%;
   background-color:silver;
   width: 20%;
   padding: 5px;

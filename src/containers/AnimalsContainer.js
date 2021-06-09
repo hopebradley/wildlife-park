@@ -43,10 +43,6 @@ class AnimalsContainer extends React.Component {
                 animals: this.props.animals
             }) 
         }
-        // Typical usage (don't forget to compare props):
-      //  if (this.props.userID !== prevProps.userID) {
-       //   this.fetchData(this.props.userID);
-        //}
       }
 
     render() {
@@ -54,7 +50,6 @@ class AnimalsContainer extends React.Component {
             <div id="animals-container">
                 {console.log(this.state.animals)}
                 {/* <button className="button"><Link to="/add-animal">Add An Animal</Link></button> */}
-                <AnimalForm addAnimal={this.props.addAnimal}/>
                 <div className="sort">
                     <h3>SORT:</h3>
                     <form onSubmit={this.handleChange}>
@@ -69,8 +64,10 @@ class AnimalsContainer extends React.Component {
                 </div>
                 {this.state.animals.map(a => {
                     const h = this.props.habitats.find(h => h.id === a.habitat_id).name;
-                    return <Animal key={a.id} animal={a} habitat={h} delete={this.props.delete}/>
+                    return <Animal key={a.id} animal={a} habitat={h} deleteAnimal={this.props.deleteAnimal}/>
                 })}
+                <AnimalForm addAnimal={this.props.addAnimal}/>
+                <br></br>
             </div>
         )
 

@@ -1,7 +1,8 @@
 //import { render } from '@testing-library/react';
 import React from 'react';
 import Habitat from './Habitat'
-import { Link } from 'react-router-dom';
+import HabitatForm from '../components/HabitatForm'
+// import { Link } from 'react-router-dom';
 
 class HabitatsContainer extends React.Component {
 
@@ -35,10 +36,18 @@ class HabitatsContainer extends React.Component {
         })
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.habitats !== this.state.habitats) {
+            this.setState({
+                habitats: this.props.habitats
+            }) 
+        }
+      }
+
     render() {
         return (
             <div>
-                <button className="button"><Link to="/add-habitat">Add A Habitat</Link></button>
+                {/* <button className="button"><Link to="/add-habitat">Add A Habitat</Link></button> */}
                 <div className="sort">
                     <h3>FILTER:</h3>
                     <form onSubmit={this.handleChange}>
@@ -51,7 +60,8 @@ class HabitatsContainer extends React.Component {
                         <input type="submit"/>
                     </form>
                 </div>
-                {this.state.habitats.map(h => <Habitat key={h.id} habitat={h} animals={this.props.animals} />)}
+                {this.state.habitats.map(h => <Habitat key={h.id} habitat={h} animals={this.props.animals} deleteAnimal={this.props.deleteAnimal} deleteHabitat={this.props.deleteHabitat} />)}
+                <HabitatForm addHabitat={this.props.addHabitat} />
             </div>
         )
     }
