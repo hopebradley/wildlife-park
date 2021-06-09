@@ -19,14 +19,11 @@ class HabitatsContainer extends React.Component {
         if (value === "Sort By Name (A-Z)") {
             newHabitatOrder = this.state.habitats.sort((a, b) => (a.name > b.name) ? 1 : -1 ); 
         }
-        else if (value === "Aquatic") {
-            newHabitatOrder = this.state.habitats.filter((h) => h.aquatic); 
+        if (value === "Indoor - Outdoor") {
+            newHabitatOrder = this.state.habitats.sort((a, b) => (a.indoor < b.indoor) ? 1 : -1 ); 
         }
-        else if (value === "Indoor") {
-            newHabitatOrder = this.state.habitats.filter((h) => h.indoor); 
-        }
-        else if (value === "Outdoor") {
-            newHabitatOrder = this.state.habitats.filter((h) => h.indoor === e); 
+        if (value === "Aquatic - Dry Land") {
+            newHabitatOrder = this.state.habitats.sort((a, b) => (a.aquatic < b.aquatic) ? 1 : -1 ); 
         }
         else {
             newHabitatOrder = this.state.habitats;
@@ -53,9 +50,8 @@ class HabitatsContainer extends React.Component {
                     <form onSubmit={this.handleChange}>
                         <select>
                                 <option>Sort By Name (A-Z)</option>
-                                <option>Aquatic</option>
-                                <option>Indoor</option>
-                                <option>Outdoor</option>
+                                <option>Indoor - Outdoor</option>
+                                <option>Aquatic - Dry Land</option>
                         </select>
                         <input type="submit"/>
                     </form>

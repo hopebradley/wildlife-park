@@ -3,8 +3,6 @@ import React from 'react';
 import NavBar from './components/NavBar'
 import HabitatsContainer from './containers/HabitatsContainer'
 import AnimalsContainer from './containers/AnimalsContainer'
-// import AnimalForm from './components/AnimalForm'
-// import HabitatForm from './components/HabitatForm'
 import HomePage from './components/HomePage'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
@@ -166,14 +164,6 @@ class App extends React.Component {
           <Route exact path="/animals" render={(props) => (
             <AnimalsContainer addAnimal={this.addAnimal} animals={this.state.animals} habitats={this.state.habitats} deleteAnimal={this.deleteAnimal} />
           )}/>
-          
-          {/* <Route exact path="/add-animal" render={(props) => (
-            <AnimalForm addAnimal={this.addAnimal}/>
-          )}/>
-
-          <Route exact path="/add-habitat" render={(props) => (
-            <HabitatForm addHabitat={this.addHabitat} />
-          )}/> */}
 
         </div>
       </Router>

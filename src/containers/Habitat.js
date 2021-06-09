@@ -6,9 +6,16 @@ const Habitat = (props) => {
 
     const activeAnimals = props.animals.filter(a => a.habitat_id === habitat.id && a.active === true)
 
+    let isIndoor;
+    let isAquatic;
+
+    habitat.indoor ? isIndoor = "Indoor" : isIndoor = "Outdoor";
+    habitat.aquatic ? isAquatic = "Aquatic" : isAquatic = "Dry Land";
+
     return (
         <div className="habitat" id={habitat.id}>
             <h1>{habitat.name}</h1>
+            <p>{isIndoor} - {isAquatic}</p>
             <h2>Active Animals:</h2>
             {activeAnimals.map(a => <Animal key={a.id} animal={a} habitat={habitat.name} deleteAnimal={props.deleteAnimal}/>)}
             <button className="button delete" onClick={props.deleteHabitat}>Delete Habitat</button>
