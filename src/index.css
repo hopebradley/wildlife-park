@@ -57,7 +57,7 @@ code {
   background-color: rgb(213, 91, 91);
 }
 
-#habitat {
+.habitat {
   background-color:rgb(225, 170, 136);
   padding: 15px;
   margin: auto;
@@ -66,7 +66,7 @@ code {
   width: 80%;
   text-align: center;
 }
-#habitat h2 {
+.habitat h2 {
   color:steelblue;
 }
 
@@ -82,11 +82,11 @@ code {
   width: 70%;
 }
 
-#active-animal {
+.active-animal {
   background-color:rgb(180, 233, 185);
 }
 
-#inactive-animal {
+.inactive-animal {
   background-color:rgb(250, 161, 141);
 }
 

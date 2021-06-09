@@ -112,11 +112,43 @@ class App extends React.Component {
   }
 
   deleteAnimal = (e) => {
-    console.log(e.target)
+    console.log(e.target.parentElement.id)
+    const IdOfAnimalToDelete = e.target.parentElement.id
+    const URL = "http://localhost:9292/animals/" + IdOfAnimalToDelete
+    const animal = this.state.animals.find(a => a.id == IdOfAnimalToDelete);
+    const animalIndex = this.state.animals.indexOf(animal);
+    console.log(URL);
+    fetch(URL, {
+      method: "DELETE"
+    })
+    .then(resp => console.log(resp))
+    .then(() => {
+      const newAnimals = this.state.animals;
+      newAnimals.splice(animalIndex, 1);
+      this.setState({
+        animals: newAnimals
+      })
+    });
   }
   
   deleteHabitat = (e) => {
-    console.log(e.target)
+    console.log(e.target.parentElement.id)
+    const IdOfHabitatToDelete = e.target.parentElement.id
+    const URL = "http://localhost:9292/habitat/" + IdOfHabitatToDelete
+    const habitat = this.state.habitats.find(h => h.id == IdOfHabitatToDelete);
+    const habitatIndex = this.state.habitats.indexOf(habitat);
+    console.log(URL);
+    fetch(URL, {
+      method: "DELETE"
+    })
+    .then(resp => console.log(resp))
+    .then(() => {
+      const newHabitats = this.state.habitats;
+      newHabitats.splice(habitatIndex, 1);
+      this.setState({
+        habitats: newHabitats
+      })
+    });
   }
 
   render() {

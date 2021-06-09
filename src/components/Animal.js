@@ -4,12 +4,12 @@ const Animal = (props) => {
     const animal = props.animal;
     const habitat = props.habitat;
 
-    let active_style = "";
+    let className = "";
 
-    animal.active ? active_style = "active-animal" : active_style = "inactive-animal"
+    animal.active ? className = "animal active-animal" : className = "animal inactive-animal"
 
     return (
-        <div className="animal" id={active_style}>
+        <div className={className} id={animal.id}>
             <h3>{animal.name} - {animal.species}</h3>
             <p>{animal.active ? "Active" : "Inactive"}</p>
             <p>Habitat: {habitat}</p>
