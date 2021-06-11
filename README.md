@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+# Wildlife Park
+
+Wildlife Park is a simulated zoo organization app that allows you to view, create, and delete habitats and animals in the park.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+The backend of this project was created using Rack. The link to the backend repository is here: https://github.com/hopebradley/phase-3-ruby-group-project-rack-react
 
-In the project directory, you can run:
+## Opening The App
 
+In the 'backend' folder of the backend repository, run bundle install. Then, start the server with
+
+### `shotgun --port=9292`
+so that the app has access to the active record database.
+
+To open the app in the browser, run
 ### `yarn start`
+and then go to [http://localhost:3000](http://localhost:3000).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Use
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+On the home page of the app, there is a link to the animals page and the habitats page. Click either link or use the navigation bar at the top to view the animals and habitats. To delete an animal or habitat, click the 'delete' button on the one you would like to delete. To add a new animal or habitat, scroll to the bottom of the respective page, fill out the form with the right information, and then click submit. Your new addition will appear on the page. 
 
-### `yarn test`
+## Contact Me:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Hope Bradley
+<br>
+Email: hope.e.bradley@gmail.com
+<br>
+LinkedIn: https://www.linkedin.com/in/hopebradl3y/
+<br>
+Blog: <a href="https://hopebradley.com">hopebradley.com</a>
