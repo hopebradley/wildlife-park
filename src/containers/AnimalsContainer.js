@@ -61,7 +61,7 @@ class AnimalsContainer extends React.Component {
                     const h = this.props.habitats.find(h => h.id === a.habitat_id).name;
                     return <Animal key={a.id} animal={a} habitat={h} deleteAnimal={this.props.deleteAnimal}/>
                 })}
-                <AnimalForm addAnimal={this.props.addAnimal}/>
+                
                 <br></br>
             </div>
         )

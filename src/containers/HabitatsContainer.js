@@ -56,7 +56,7 @@ class HabitatsContainer extends React.Component {
                         <input type="submit"/>
                     </form>
                 </div>
-                {this.state.habitats.map(h => <Habitat key={h.id} habitat={h} animals={this.props.animals} deleteAnimal={this.props.deleteAnimal} deleteHabitat={this.props.deleteHabitat} />)}
+                {this.state.habitats.map(h => <Habitat key={h.id} habitat={h} animals={this.props.animals} addAnimal={this.props.addAnimal} deleteAnimal={this.props.deleteAnimal} deleteHabitat={this.props.deleteHabitat} />)}
                 <HabitatForm addHabitat={this.props.addHabitat} />
             </div>
         )

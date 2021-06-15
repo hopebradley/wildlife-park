@@ -36,14 +36,16 @@ class App extends React.Component {
 
   addAnimal = (e) => {
     e.preventDefault();
-    //console.log(Array.from(e.target.children));
+    console.log(e.target.id)
+    console.log(Array.from(e.target.children));
     const formContents = Array.from(e.target.children);
-    const name = formContents[1].value;
-    const species = formContents[3].value;
-    const habitat = this.state.habitats.find(h => h.name === formContents[5].value);
-    const active = true;
+    const name = formContents[2].value;
+    const species = formContents[4].value;
+    const habitat_id = e.target.id;
+    const active = formContents[6].selectedIndex.value === "Yes";
+    console.log(active)
 
-    console.log('Animal attributes:', name, species, habitat, active);
+    console.log('Animal attributes:', name, species, habitat_id, active);
 
     const configObject = {
       method: "POST",
@@ -54,8 +56,8 @@ class App extends React.Component {
       body: JSON.stringify({
         name: name,
         species: species,
-        active: true,
-        habitat_id: habitat.id,
+        active: active,
+        habitat_id: habitat_id,
       })
     }
 
@@ -68,15 +70,19 @@ class App extends React.Component {
       });
     });
 
+    e.target.children[2].value = "";
+    e.target.children[4].value = "";
+    e.target.children[6].selectedIndex = 0;
+
   }
 
   addHabitat = (e) => {
     e.preventDefault();
     console.log(Array.from(e.target.children));
     const formContents = Array.from(e.target.children);
-    const name = formContents[1].value;
-    const type = formContents[3].value;
-    const location = formContents[5].value;
+    const name = formContents[2].value;
+    const type = formContents[4].value;
+    const location = formContents[6].value;
     let indoor;
     let aquatic;
     type === "Aquatic" ? aquatic = true : aquatic = false;
@@ -132,14 +138,13 @@ class App extends React.Component {
   deleteHabitat = (e) => {
     console.log(e.target.parentElement.id)
     const IdOfHabitatToDelete = e.target.parentElement.id
-    const URL = "http://localhost:9292/habitat/" + IdOfHabitatToDelete
-    const habitat = this.state.habitats.find(h => h.id == IdOfHabitatToDelete);
+    const URL = "http://localhost:9292/habitats/" + IdOfHabitatToDelete
+    const habitat = this.state.habitats.find(h => h.id === IdOfHabitatToDelete);
     const habitatIndex = this.state.habitats.indexOf(habitat);
     console.log(URL);
     fetch(URL, {
       method: "DELETE"
     })
-    .then(resp => console.log(resp))
     .then(() => {
       const newHabitats = this.state.habitats;
       newHabitats.splice(habitatIndex, 1);
@@ -158,11 +163,11 @@ class App extends React.Component {
             <HomePage />
           )}/>
           <Route exact path="/habitats" render={(props) => (
-            <HabitatsContainer addHabitat={this.addHabitat} habitats={this.state.habitats} animals={this.state.animals} deleteAnimal={this.deleteAnimal} deleteHabitat={this.deleteHabitat}/>
+            <HabitatsContainer addHabitat={this.addHabitat} habitats={this.state.habitats} animals={this.state.animals} deleteAnimal={this.deleteAnimal} deleteHabitat={this.deleteHabitat} addAnimal={this.addAnimal}/>
           )}/>
 
           <Route exact path="/animals" render={(props) => (
-            <AnimalsContainer addAnimal={this.addAnimal} animals={this.state.animals} habitats={this.state.habitats} deleteAnimal={this.deleteAnimal} />
+            <AnimalsContainer animals={this.state.animals} habitats={this.state.habitats}/>
           )}/>
 
         </div>

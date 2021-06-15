@@ -3,8 +3,9 @@ const HabitatForm = (props) => {
 
     return (
         <div>
-            <h1 id="form-title">Add a Habitat:</h1>
-            <form onSubmit={props.addHabitat} className="form">
+            
+            <form onSubmit={props.addHabitat} className="habitat-form form">
+                <h1 id="form-title">Add a Habitat:</h1>
                 <h3>Name</h3>
                 <input type="text" placeholder="Sandy Coastline..."></input>
                 <h3>Type</h3>
@@ -19,7 +20,7 @@ const HabitatForm = (props) => {
                 </select>
                 <br></br>
                 <br></br>
-                <input type="submit"></input>
+                <input type="submit" value="Add"></input>
             </form>
         </div>
     )

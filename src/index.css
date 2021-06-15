@@ -58,7 +58,7 @@ code {
 }
 
 .habitat {
-  background-color:rgb(225, 170, 136);
+  background-color:rgb(249, 199, 141);
   padding: 15px;
   margin: auto;
   margin-bottom: 3%;
@@ -83,7 +83,7 @@ code {
 }
 
 .active-animal {
-  background-color:rgb(180, 233, 185);
+  background-color:rgb(162, 244, 170);
 }
 
 .inactive-animal {
@@ -115,21 +115,24 @@ a {
 }
 
 .form {
-  width: 80%;
+  width: 20%;
   margin: auto;
   text-align: center;
-  background-color:rgb(206, 169, 227);
+  font-size: small;
+  background-color:rgb(233, 227, 158);
   padding-left: 5%;
   padding-right: 5%;
   padding-top: 1%;
   padding-bottom: 3%;
-  margin-bottom: 100px;
-  margin-top: 50px;
+  margin-bottom: 20px;
+  margin-top: 30px;
   border-radius: 20px;
 }
 
-#form-title {
-  text-align: center;
+.habitat-form {
+  background-color: rgb(191, 207, 249);
+  width: 72%;
+  margin-bottom: 5%;
 }
 
 .sort {

@@ -10,9 +10,11 @@ const Animal = (props) => {
 
     return (
         <div className={className} id={animal.id}>
-            <h3>{animal.name} - {animal.species}</h3>
-            <p>{animal.active ? "Active" : "Inactive"}</p>
-            <p>Habitat: {habitat}</p>
+            <div className="animal-info">
+                <h3>{animal.name} the {animal.species}</h3>
+                <p>{animal.active ? "Active" : "Inactive"}</p>
+                <p>Habitat: {habitat}</p>
+            </div>
             <button className="button delete" onClick={props.deleteAnimal}>Delete Animal</button>
         </div>
     )

@@ -3,24 +3,21 @@ const AnimalForm = (props) => {
 
     return (
         <div>
-            <h1 id="form-title">Add an Animal:</h1>
-            <form onSubmit={props.addAnimal} className="form">
-                <h3>Name</h3>
+            
+            <form onSubmit={props.addAnimal} className="form" id={props.habitat.id}>
+                <h3 id="form-title">Add Animal To Habitat:</h3>
+                <p>Name</p>
                 <input type="text" placeholder="Jane..."></input>
-                <h3>Species</h3>
+                <p>Species</p>
                 <input type="text" placeholder="Horse..."></input>
-                <h3>Habitat</h3>
+                <p>Currently Active?</p>
                 <select>
-                    <option>Arctic Mountains</option>
-                    <option>African Savannah</option>
-                    <option>Amazon Rainforest</option>
-                    <option>Deep Ocean</option>
-                    <option>Rapid River</option>
-                    <option>Insect Emporium</option>
+                    <option>Yes</option>
+                    <option>No</option>
                 </select>
                 <br></br>
                 <br></br>
-                <input type="submit"></input>
+                <input type="submit" value="Add"></input>
             </form>
         </div>
     )
