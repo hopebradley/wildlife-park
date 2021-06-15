@@ -42,7 +42,7 @@ class App extends React.Component {
     const name = formContents[2].value;
     const species = formContents[4].value;
     const habitat_id = e.target.id;
-    const active = formContents[6].selectedIndex.value === "Yes";
+    const active = formContents[6].value === "Yes";
     console.log(active)
 
     console.log('Animal attributes:', name, species, habitat_id, active);
@@ -167,7 +167,7 @@ class App extends React.Component {
           )}/>
 
           <Route exact path="/animals" render={(props) => (
-            <AnimalsContainer animals={this.state.animals} habitats={this.state.habitats}/>
+            <AnimalsContainer animals={this.state.animals} habitats={this.state.habitats} deleteAnimal={this.deleteAnimal}/>
           )}/>
 
         </div>

@@ -58,7 +58,8 @@ class AnimalsContainer extends React.Component {
                     </form>
                 </div>
                 {this.state.animals.map(a => {
-                    const h = this.props.habitats.find(h => h.id === a.habitat_id).name;
+                    const h = this.props.habitats.find(h => h.id == a.habitat_id).name;
+                    console.log("habitat", h, "animal", a.name)
                     return <Animal key={a.id} animal={a} habitat={h} deleteAnimal={this.props.deleteAnimal}/>
                 })}
                 
